@@ -35,9 +35,7 @@ export class NavbarComponent implements OnInit {
     this.fetchCustomerProjects();
   }
 
-  openMediumModal( mediumModalContent ) {
-    this.modalService.open( mediumModalContent );
-  }
+  
 
 
   // toggle sidebar in small devices
@@ -49,6 +47,10 @@ export class NavbarComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['/user-pages/login']);
 
+  }
+
+  openMediumModal( mediumModalContent ) {
+    this.modalService.open( mediumModalContent );
   }
 
   // toggle sidebar

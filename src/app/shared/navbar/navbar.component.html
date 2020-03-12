@@ -144,13 +144,84 @@
           <i class="mdi mdi-power"></i>
         </a>
       </li>
-      <li class="nav-item nav-settings d-none d-lg-block" (click)="toggleRightSidebar()">
-        <a class="nav-link">
-          <i class="mdi mdi-format-line-spacing"></i>
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" ngbDropdownToggle>
+          <i class="mdi mdi-settings"></i>
+          <span class="count-symbol bg-danger"></span>
         </a>
-      </li>
-      <li class="nav-item nav-settings d-none d-lg-block">
-        <button type="button" class="btn btn-primary btn-sm" (click)="openMediumModal(mediumModalContent)">Click for demo<i class="mdi mdi-arrow-right-circle-outline ml-1"></i></button>
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" ngbDropdownMenu aria-labelledby="notificationDropdown">
+          <h6 class="p-3 mb-0">Settings</h6>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-success">
+                <i class="mdi mdi-cloud"></i>
+              </div>
+            </div>
+            <div routerLink="/application/cloud-account" class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+              <h6 class="preview-subject font-weight-normal mb-1">Cloud Account</h6>
+              <p class="text-gray ellipsis mb-0">
+                Manage Cloud account
+              </p>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-warning">
+                <i class="mdi mdi-blur-linear"></i>
+              </div>
+            </div>
+            <div routerLink="/application/preferences" class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+              <h6 class="preview-subject font-weight-normal mb-1">Preferences</h6>
+              <p class="text-gray ellipsis mb-0">
+                General Preferences
+              </p>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-info">
+                <i class="mdi mdi-link-variant"></i>
+              </div>
+            </div>
+            <div routerLink="/application/organisation-profile" class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+              <h6 class="preview-subject font-weight-normal mb-1">Organisational Profile</h6>
+              <p class="text-gray ellipsis mb-0">
+                Manage Organisation
+              </p>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-success">
+                <i class="mdi mdi-account-multiple"></i>
+              </div>
+            </div>
+            <div routerLink="/application/user-roles" class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+              <h6 class="preview-subject font-weight-normal mb-1">Users & Roles</h6>
+              <p class="text-gray ellipsis mb-0">
+                Manage Users & Roles
+              </p>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-warning">
+                <i class="mdi mdi-notification-clear-all"></i>
+              </div>
+            </div>
+            <div routerLink="/application/enable-logs" class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+              <h6 class="preview-subject font-weight-normal mb-1">Enable Logs</h6>
+              <p class="text-gray ellipsis mb-0">
+                Enable Logs
+              </p>
+            </div>
+          </a>
+        </div>
       </li>
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" (click)="toggleOffcanvas()">
@@ -158,24 +229,23 @@
     </button>
   </div>
 </nav>
-
-<div>
-  <ng-template #mediumModalContent let-modal class="modal fade" id="exampleModal-2" aria-labelledby="exampleModalLabel-2">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel-2">Modal title</h5>
-        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="modal.close()">Submit</button>
-        <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
-      </div>
+<ng-template #mediumModalContent let-modal class="modal fade" id="exampleModal-2" aria-labelledby="exampleModalLabel-2">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel-2">Modal title</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-  </ng-template>
-  <!-- Modal Ends -->
+    <div class="modal-body">
+      <p>Modal body text goes here.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="modal.close()">Submit</button>
+      <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+    </div>
+  </div>
+</ng-template>
+<!-- Modal Ends -->
+<div>
 </div>

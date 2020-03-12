@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
                       sessionStorage.setItem('subscriptionDetails' , this.response.data.subscriptionDetails);
                       sessionStorage.setItem('addonDetails' , this.response.data.addonDetails);
                       this.statusText = 'Logged in Successfully';
-                      this.router.navigate(['/main-page/main-component']);
+                      this.router.navigate(['/application/main-component']);
                       console.log('Logged in successful');
                     }
                 },

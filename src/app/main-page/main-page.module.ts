@@ -8,6 +8,11 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { SpinnerComponent } from '../shared/spinner/spinner.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CloudAccountComponent } from './cloud-account/cloud-account.component';
+import { PreferencesComponent } from './preferences/preferences.component';
+import { OraganisationProfileComponent } from './oraganisation-profile/oraganisation-profile.component';
+import { UserRolesComponent } from './user-roles/user-roles.component';
+import { EnableLogsComponent } from './enable-logs/enable-logs.component';
 
 
 const routes: Routes = [
@@ -22,7 +27,12 @@ const routes: Routes = [
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CloudAccountComponent,
+    PreferencesComponent,
+    OraganisationProfileComponent,
+    UserRolesComponent,
+    EnableLogsComponent
   ],
   imports: [
     CommonModule,
