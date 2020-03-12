@@ -17,7 +17,6 @@ import { EnableLogsComponent } from './enable-logs/enable-logs.component';
 
 const routes: Routes = [
   {path : 'main-component' , component : MainComponentComponent},
-  {path : 'main-component' , component : MainComponentComponent}
 ]
 
 @NgModule({

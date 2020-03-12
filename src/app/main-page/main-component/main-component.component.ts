@@ -1186,8 +1186,4 @@ export class MainComponentComponent implements OnInit {
    )
 }
 
-routeToMainPanel(){
-  this.router.navigate(['/main-page/main-component']);
-}
-
 }
