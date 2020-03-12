@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { WindowRef } from './../window-ref';
+import { WindowRef } from '../../window-ref';
 import * as zc from '@dvsl/zoomcharts';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { environment } from './../../environments/environment';
-
+import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-main-component',
+  templateUrl: './main-component.component.html',
+  styleUrls: ['./main-component.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class MainComponentComponent implements OnInit {
+
   sessionMessage: string;
   errorCode: any;
   dashboardRegionDropDown: string;
@@ -19,10 +19,10 @@ export class DashboardComponent implements OnInit {
   bestPracticesRuleDateList :any;
   bestPracticesDate :any;
 
-  constructor(private router: Router,private winRef: WindowRef, private http: HttpClient) {
+  constructor(private router: Router,private winRef: WindowRef, private http: HttpClient) { 
     winRef.nativeWindow.ZoomChartsLicense = 'ZCP-m99ri154u: ZoomCharts Development licence for Rapyder';
     winRef.nativeWindow.ZoomChartsLicenseKey = '0604503cd4bfd50552d85a73e171da182626b9310f6477ec7630e71ee06a29442552002849bf387316c093cd431e73f9c7815208e9ee256cdfa4453a1d0d26ab06aeaad3f5d513aa6417e61ecc636c94ec022e8d6a30b6a0ee0176efdab28d9c9bffc3829d66cfc151f4e7acea2e9c2d410c28da0fccde7da0644331675d2116ffe3bada1d0b70ee76e1701070f892083f0ab285077208c5182ec246b9418271e50ea18b2937cf0c6542889c1af89efe312305109386edae7b3975942d44510600bb396fc3677165d8615814bc0cff5d79a684778cec49c4b0a5e64215ff6aeef3a6b379199739ba3e7a56ccff73ede8aefea5e56aa9882954bf9bf2e0bd903c';
-   }
+  }
 
   ngOnInit() {
     this.dashboardRegionDropDown = 'all';

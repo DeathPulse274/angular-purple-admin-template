@@ -9,9 +9,9 @@ import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConf
 export class AppComponent implements OnInit{
   title = 'demo1';
 
-  showSidebar: boolean = true;
-  showNavbar: boolean = true;
-  showFooter: boolean = true;
+  showSidebar: boolean = false;
+  showNavbar: boolean = false;
+  showFooter: boolean = false;
   isLoading: boolean;
 
   constructor(private router: Router) {
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
     // Removing Sidebar, Navbar, Footer for Documentation, Error and Auth pages
     router.events.forEach((event) => { 
       if(event instanceof NavigationStart) {
-        if((event['url'] == '/user-pages/login') || (event['url'] == '/user-pages/register') || (event['url'] == '/error-pages/404') || (event['url'] == '/error-pages/500') ) {
+        if((event['url'] == '/user-pages/login') || (event['url'] == '/user-pages/register') || (event['url'] == '/error-pages/404') || (event['url'] == '/error-pages/500')) {
           this.showSidebar = false;
           this.showNavbar = false;
           this.showFooter = false;
@@ -55,6 +55,9 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit() {
+
+    console.log("URL CHECK");
+    console.log(this.router.url); 
     // Scroll to top after route change
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
