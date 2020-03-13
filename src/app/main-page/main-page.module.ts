@@ -13,6 +13,17 @@ import { PreferencesComponent } from './preferences/preferences.component';
 import { OraganisationProfileComponent } from './oraganisation-profile/oraganisation-profile.component';
 import { UserRolesComponent } from './user-roles/user-roles.component';
 import { EnableLogsComponent } from './enable-logs/enable-logs.component';
+import { LogsComponent } from './logs/logs.component';
+import { CloudFrontComponent } from './logs/cloud-front/cloud-front.component';
+import { CloudTrailComponent } from './logs/cloud-trail/cloud-trail.component';
+import { AlbComponent } from './logs/alb/alb.component';
+import { S3Component } from './logs/s3/s3.component';
+import { VpcComponent } from './logs/vpc/vpc.component';
+import { GuardDutyComponent } from './logs/guard-duty/guard-duty.component';
+import { InspectorComponent } from './logs/inspector/inspector.component';
+import { UtilizationComponent } from './logs/utilization/utilization.component';
+import { ChangeManagementComponent } from './logs/change-management/change-management.component';
+import { ElbComponent } from './logs/elb/elb.component';
 
 
 const routes: Routes = [
@@ -31,7 +42,18 @@ const routes: Routes = [
     PreferencesComponent,
     OraganisationProfileComponent,
     UserRolesComponent,
-    EnableLogsComponent
+    EnableLogsComponent,
+    LogsComponent,
+    CloudFrontComponent,
+    CloudTrailComponent,
+    AlbComponent,
+    S3Component,
+    VpcComponent,
+    GuardDutyComponent,
+    InspectorComponent,
+    UtilizationComponent,
+    ChangeManagementComponent,
+    ElbComponent
   ],
   imports: [
     CommonModule,

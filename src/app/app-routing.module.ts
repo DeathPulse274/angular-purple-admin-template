@@ -9,6 +9,17 @@ import {PreferencesComponent } from './main-page/preferences/preferences.compone
 import { OraganisationProfileComponent } from './main-page/oraganisation-profile/oraganisation-profile.component';
 import { UserRolesComponent } from './main-page/user-roles/user-roles.component';
 import { EnableLogsComponent } from './main-page/enable-logs/enable-logs.component';
+import { LogsComponent } from './main-page/logs/logs.component';
+import { CloudFrontComponent } from './main-page/logs/cloud-front/cloud-front.component';
+import { CloudTrailComponent } from  './main-page/logs/cloud-trail/cloud-trail.component';
+import { AlbComponent } from './main-page/logs/alb/alb.component';
+import { ElbComponent } from './main-page/logs/elb/elb.component';
+import { S3Component } from './main-page/logs/s3/s3.component';
+import { VpcComponent } from './main-page/logs/vpc/vpc.component';
+import { GuardDutyComponent } from './main-page/logs/guard-duty/guard-duty.component';
+import { InspectorComponent } from './main-page/logs/inspector/inspector.component';
+import { ChangeManagementComponent } from './main-page/logs/change-management/change-management.component'
+import { UtilizationComponent } from './main-page/logs/utilization/utilization.component';
 const routes: Routes = [
   { path: '', redirectTo: '/user-pages/login', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -29,7 +40,21 @@ const routes: Routes = [
             {path: 'preferences' , component:PreferencesComponent},
             {path: 'organisation-profile', component: OraganisationProfileComponent},
             {path: 'user-roles', component: UserRolesComponent},
-            {path: 'enable-logs', component: EnableLogsComponent}
+            {path: 'enable-logs', component: EnableLogsComponent},
+            {path: 'logs', component : LogsComponent,
+              children:[
+                {path:'cloud-front', component: CloudFrontComponent},
+                {path:'cloud-trail', component:CloudTrailComponent},
+                {path:'alb',component:AlbComponent},
+                {path:'elb',component:ElbComponent},
+                {path:'s3',component:S3Component},
+                {path:'vpc',component:VpcComponent},
+                {path:'guard-duty',component:GuardDutyComponent},
+                {path:'inspector',component:InspectorComponent},
+                {path:'utilization',component:UtilizationComponent},
+                {path:'change-management',component:ChangeManagementComponent}
+              ]
+            }
           ]
   }
  // { path : 'main-page', loadChildren: () => import('./main-page/main-page.module').then(m => m.MainModule)}

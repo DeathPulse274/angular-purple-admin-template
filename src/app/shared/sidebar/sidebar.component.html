@@ -42,6 +42,29 @@
         </ul>
       </div>
     </li>
+
+    <li class="nav-item" [ngClass]="{'active' : cloudfront.isActive || cloudtrail.isActive || alb.isActive || elb.isActive || s3.isActive || vpc.isActive || gaurdduty.isActive || inspector.isActive || utilization.isActive || changemanagement.isActive}">
+      <a class="nav-link" (click)="logsCollapsed = !logsCollapsed" [attr.aria-expanded]="logsCollapsed" aria-controls="ui-basic">
+        <span class="menu-title">Logs</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-chart-gantt menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-basic" [ngbCollapse]="!logsCollapsed">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/cloud-front" routerLinkActive="active" #cloudfront="routerLinkActive">Cloud Front</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/cloud-trail" routerLinkActive="active" #cloudtrail="routerLinkActive">Cloud Trail</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/alb" routerLinkActive="active" #alb="routerLinkActive">ALB</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/elb" routerLinkActive="active" #elb="routerLinkActive">ELB</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/s3" routerLinkActive="active" #s3="routerLinkActive">S3</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/vpc" routerLinkActive="active" #vpc="routerLinkActive">VPC</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/guard-duty" routerLinkActive="active" #gaurdduty="routerLinkActive">Gaurd Duty</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/inspector" routerLinkActive="active" #inspector="routerLinkActive">Inspector</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/utilization" routerLinkActive="active" #utilization="routerLinkActive">Utilization</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/logs/change-management" routerLinkActive="active" #changemanagement="routerLinkActive">Change Management</a></li>
+        </ul>
+      </div>
+    </li>
+
     <li class="nav-item" [ngClass]="{ 'active': forms.isActive }">
       <a class="nav-link" routerLink="forms/basic-elements" routerLinkActive #forms="routerLinkActive">
         <span class="menu-title">Form elements</span>
