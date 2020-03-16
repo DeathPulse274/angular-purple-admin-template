@@ -24,6 +24,17 @@ import { InspectorComponent } from './logs/inspector/inspector.component';
 import { UtilizationComponent } from './logs/utilization/utilization.component';
 import { ChangeManagementComponent } from './logs/change-management/change-management.component';
 import { ElbComponent } from './logs/elb/elb.component';
+import { BestPracticesComponent } from './best-practices/best-practices.component';
+import { CostInsightsComponent } from './cost-insights/cost-insights.component';
+import { ExplorerComponent } from './cost-insights/explorer/explorer.component';
+import { InvoicesComponent } from './cost-insights/invoices/invoices.component';
+import { CostComparisonComponent } from './cost-insights/cost-comparison/cost-comparison.component';
+import { CostSavingsComponent } from './cost-insights/cost-savings/cost-savings.component';
+import { AutomationComponent } from './automation/automation.component';
+import { StartStopComponent } from './automation/start-stop/start-stop.component';
+import { TaggingComponent } from './automation/tagging/tagging.component';
+import { SnapshotComponent } from './automation/snapshot/snapshot.component';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -53,12 +64,23 @@ const routes: Routes = [
     InspectorComponent,
     UtilizationComponent,
     ChangeManagementComponent,
-    ElbComponent
+    ElbComponent,
+    BestPracticesComponent,
+    CostInsightsComponent,
+    ExplorerComponent,
+    InvoicesComponent,
+    CostComparisonComponent,
+    CostSavingsComponent,
+    AutomationComponent,
+    StartStopComponent,
+    TaggingComponent,
+    SnapshotComponent
   ],
   imports: [
     CommonModule,
     NgbModule,
     RouterModule.forChild(routes),
+    FormsModule
   ]
 })
 

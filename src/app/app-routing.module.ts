@@ -20,6 +20,19 @@ import { GuardDutyComponent } from './main-page/logs/guard-duty/guard-duty.compo
 import { InspectorComponent } from './main-page/logs/inspector/inspector.component';
 import { ChangeManagementComponent } from './main-page/logs/change-management/change-management.component'
 import { UtilizationComponent } from './main-page/logs/utilization/utilization.component';
+import { BestPracticesComponent } from './main-page/best-practices/best-practices.component';
+import { CostInsightsComponent } from './main-page/cost-insights/cost-insights.component';
+import { ExplorerComponent } from './main-page/cost-insights/explorer/explorer.component';
+import { InvoicesComponent } from './main-page/cost-insights/invoices/invoices.component';
+import { CostComparisonComponent } from './main-page/cost-insights/cost-comparison/cost-comparison.component';
+import { CostSavingsComponent } from './main-page/cost-insights/cost-savings/cost-savings.component';
+import { AutomationComponent } from './main-page/automation/automation.component';
+import { SnapshotComponent } from './main-page/automation/snapshot/snapshot.component';
+import { TaggingComponent } from './main-page/automation/tagging/tagging.component';
+import { StartStopComponent } from './main-page/automation/start-stop/start-stop.component';
+
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/user-pages/login', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -54,9 +67,25 @@ const routes: Routes = [
                 {path:'utilization',component:UtilizationComponent},
                 {path:'change-management',component:ChangeManagementComponent}
               ]
+            },
+            {path:'best-practices',component:BestPracticesComponent},
+            {path:'cost-insights', component:CostInsightsComponent,
+              children:[
+                {path:'explorer',component:ExplorerComponent},
+                {path:'invoices',component:InvoicesComponent},
+                {path:'cost-comparison',component:CostComparisonComponent},
+                {path:'cost-savings',component:CostSavingsComponent}
+              ]
+            },
+            {path:'automation',component:AutomationComponent,
+              children:[
+                {path:'start-stop',component:StartStopComponent},
+                {path:'tagging',component:TaggingComponent},
+                {path:'snapshot',component:SnapshotComponent}
+              ]
             }
           ]
-  }
+  },
  // { path : 'main-page', loadChildren: () => import('./main-page/main-page.module').then(m => m.MainModule)}
 ];
 

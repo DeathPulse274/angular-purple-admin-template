@@ -9,6 +9,8 @@ export class SidebarComponent implements OnInit {
   public uiBasicCollapsed = false;
   public samplePagesCollapsed = false;
   public logsCollapsed = false;
+  public costInsightsCollapsed = false;
+  public automationCollapsed = false;
   
   constructor() { }
 

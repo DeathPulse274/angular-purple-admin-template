@@ -261,7 +261,37 @@
       </button>
     </div>
     <div class="modal-body">
-      <p>Modal body text goes here.</p>
+      <div class="row">
+        <div class="col-lg-6">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem *ngFor="let project of projectsList" [value]="project.accountId">{{project.customerName}}</button>
+            </div>
+          </div>
+      <!--<div class="form-group">
+        <div class="input-group">
+          <div ngbDropdown class="input-group-prepend">
+            <div class="btn-group mr-3">
+              <button type="button" class="btn btn-primary">Split me</button>
+              <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+                <div class="dropdown-menu" ngbDropdownMenu>
+                  <button ngbDropdownItem *ngFor="let project of projectsList" [value]="project.accountId">{{project.customerName}}</button>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>-->
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <input type="password" [(ngModel)]="inputPassword" id="account-password" class="form-control" />
+          </div>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-success" (click)="modal.close()">Submit</button>

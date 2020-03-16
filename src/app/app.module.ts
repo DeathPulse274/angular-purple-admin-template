@@ -36,7 +36,7 @@ import { MainModule } from './main-page/main-page.module';
     ChartsModule,
     HttpClientModule,
     SharedModule,
-    MainModule
+    MainModule,
   ],
   providers: [WindowRef],
   bootstrap: [AppComponent]

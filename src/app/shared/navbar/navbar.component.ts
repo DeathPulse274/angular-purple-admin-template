@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {environment } from './../../../environments/environment'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Globals } from '../../main-page/Globals';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +13,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./navbar.component.scss'],
   providers: [NgbDropdownConfig]
 })
+
 export class NavbarComponent implements OnInit {
   public iconOnlyToggled = false;
   public sidebarToggled = false;
@@ -25,7 +28,8 @@ export class NavbarComponent implements OnInit {
   project:any;
   userResponseCode :any;
   inputPassword :any;
-  
+  projectsList:any;
+
   constructor(config: NgbDropdownConfig, private router: Router, private http: HttpClient,private modalService: NgbModal) {
     config.placement = 'bottom-right';
   }
@@ -33,6 +37,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     
     this.fetchCustomerProjects();
+    this.fetchAllAccounts();
   }
 
   
@@ -192,6 +197,44 @@ export class NavbarComponent implements OnInit {
     this.filteredCloudAccountList = this.cloudAccountList.filter(item =>
       item.accountName.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
     );
+  }
+
+
+  fetchAllAccounts(){
+
+    let headers = new HttpHeaders().set('loginToken',sessionStorage.getItem('token').toString());
+    headers = headers.append('userid',sessionStorage.getItem('userId').toString());
+    headers = headers.append('accountid',sessionStorage.getItem('accountId').toString());
+
+    console.log('After fetchAllAccounts() headers :: ',headers);
+
+    var accountIdVal = sessionStorage.getItem('accountId');
+
+    let params = 'accountId=' +accountIdVal.toString();
+
+    this.http.get(environment.envUrl + 'account/project/details?' + params, {headers}).subscribe(data => {
+      this.response = data;
+      //this.spinner.hide();
+      this.projectsList = this.response.data;
+      this.project = this.projectsList[0].accountId;
+      console.log('check');
+      console.log(this.projectsList);
+      //this.bootstrapSelectDirective.refresh();
+  },
+  (err: HttpErrorResponse) => {
+      console.log(err);
+      //this.spinner.hide();
+      this.errorCode = err;
+      if(this.errorCode.error.metaData.errCode ==='USER_1003' || this.errorCode.error.metaData.errCode  ==='USER_1004'){
+        Globals.sessionMessage = "Your session has expired. Press reauthenticate again.";
+        this.router.navigate(['access/login']);
+    }
+      
+  }
+);
+
+
+
   }
 
 }
