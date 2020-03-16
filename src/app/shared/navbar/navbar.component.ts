@@ -111,9 +111,12 @@ export class NavbarComponent implements OnInit {
                 sessionStorage.setItem('masterAccount',this.accountDropDownResult.cloudBo.masterAccount);
               
                 this.accountName = this.accountDropDownResult.cloudBo.accountName;
+                alert(this.accountName);
               }else{
                
                 this.accountName = sessionStorage.getItem('cloudAccountName');
+                alert("else");
+                alert(this.accountName);
               }
               // this.downInfraSheet();
             this.cloudAccountList = this.accountDropDownResult.cloudBoList;
@@ -137,7 +140,7 @@ export class NavbarComponent implements OnInit {
     let headers = new HttpHeaders().set('loginToken',sessionStorage.getItem('token').toString());
     headers = headers.append('userid',sessionStorage.getItem('userId').toString());
     headers = headers.append('accountid',sessionStorage.getItem('accountId').toString());
-    console.log('After header in fetchCloudAccounts');
+    console.log('After header in switchDifferentOrganisation()');
     let params = 'accountId=' + this.project;
     this.http.post(environment.envUrl + 'switch/account', {
       "accountId": this.project,
@@ -166,7 +169,8 @@ export class NavbarComponent implements OnInit {
                 this.cloudAccountList = this.accountDropDownResult.cloudBoList;
                 this.accountName = this.accountDropDownResult.cloudBo.accountName;
                 this.comapnyName = this.accountDropDownResult.accountBo.companyName;
-                this.router.navigate(['account/insights/dashboard']);
+                this.router.navigate(['/application/main-component']);
+                window.location.reload();
                 console.log('Logged in successful');
                 this.userResponseCode = 'SUCCESS';
              
@@ -190,6 +194,28 @@ export class NavbarComponent implements OnInit {
       }
   );
 }
+
+
+changeCloudAccount(cloudBo){
+  sessionStorage.setItem('cloudAccountId', cloudBo.cloudAccountId);
+  sessionStorage.setItem('masterAccount',cloudBo.masterAccount);
+  
+  this.accountName = cloudBo.accountName;
+  sessionStorage.setItem('cloudAccountName', this.accountName);
+  if (this.router.url === '/application/main-component'){
+    location.reload();
+  }else{
+    //this.router.navigate(['/account/insights/dashboard']);
+    /*if(this.returnUrl != undefined && this.returnUrl !=""){
+      this.router.navigate([this.returnUrl])
+    }
+     
+    else
+    //this.router.navigate(['/account/insights/dashboard']);   
+    this.router.navigate([this.returnUrl])                     
+      console.log('Logged in successful'); */
+}
+  }
 
 
   filter(searchText) {

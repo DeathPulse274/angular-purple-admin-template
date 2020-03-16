@@ -15,13 +15,15 @@
             <span class="availability-status online"></span>
           </div>
           <div class="nav-profile-text">
-            <p class="mb-1 text-black">David Greymaax</p>
+            <p class="mb-1 text-black">{{accountName}}/{{comapnyName}}</p>
           </div>
         </a>
-        <div class="dropdown-menu navbar-dropdown" ngbDropdownMenu aria-labelledby="profileDropdown">
+        <div class="dropdown-menu navbar-dropdown" ngbDropdownMenu aria-labelledby="profileDropdown" style="min-width: 250px; text-overflow: ellipsis; max-height: 350px; overflow-y: auto; ">
           <a class="dropdown-item" (click)="openMediumModal(mediumModalContent)" > 
-              <span >{{accountName}}/{{comapnyName}}(Current)</span>
+              <span style="font-size: medium;">{{accountName}}/{{comapnyName}}(Current)</span>
           </a>
+            <button class="dropdown-item" *ngFor="let project of filteredCloudAccountList" [ngClass]="project.accountName===accountName?'active':''"  [value]="project.accountId" (click) = "changeCloudAccount(project)" ><span class="badge" style="background:#028090">AWS</span>&nbsp;
+              <span *ngIf="project.masterAccount === true" class="badge" style="background:#f08519">M</span> {{ project.accountName }}</button>
           <div class="dropdown-divider"></div>
           <a (click)="logout()" class="dropdown-item" href="javascript:;">
             <i class="mdi mdi-logout mr-2 text-primary"></i>
@@ -263,13 +265,16 @@
     <div class="modal-body">
       <div class="row">
         <div class="col-lg-6">
-          <div ngbDropdown class="d-inline-block">
+          <select  class="form-control " data-show-subtext="true" data-live-search="true" [(ngModel)]="project">
+            <option *ngFor="let project of projectsList" [value]="project.accountId">{{project.customerName}}</option>
+          </select>
+          <!--<div ngbDropdown class="d-inline-block" style="display: none;">
             <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <button ngbDropdownItem *ngFor="let project of projectsList" [value]="project.accountId">{{project.customerName}}</button>
             </div>
           </div>
-      <!--<div class="form-group">
+      <div class="form-group">
         <div class="input-group">
           <div ngbDropdown class="input-group-prepend">
             <div class="btn-group mr-3">
@@ -294,7 +299,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-success" (click)="modal.close()">Submit</button>
+      <button type="button" class="btn btn-success" (click)="modal.close();switchDifferentOrganisation();">Submit</button>
       <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
     </div>
   </div>

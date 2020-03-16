@@ -205,7 +205,7 @@ export class MainComponentComponent implements OnInit {
       cloudAccountVal = "1";//TODO 
     }
     var graphData: any;
-    let params = 'cloudAccountId=151' + '&accountId=4' + '&region=' +this.dashboardRegionDropDown;
+    let params = 'cloudAccountId=' + cloudAccountVal + '&accountId=' + accountIdVal + '&region=' +this.dashboardRegionDropDown;
 
     this.http.get(environment.envUrl + '/home/tagging/data?' + params, { headers }).subscribe(data => {
 
