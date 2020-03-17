@@ -37,6 +37,7 @@ import { SnapshotComponent } from './automation/snapshot/snapshot.component';
 import { FormsModule } from '@angular/forms';
 import { InventoryComponent } from './inventory/inventory.component';
 import { DataTablesModule } from 'angular-datatables';
+import { MsDashboardComponent } from './ms-dashboard/ms-dashboard.component';
 
 
 const routes: Routes = [
@@ -77,7 +78,8 @@ const routes: Routes = [
     StartStopComponent,
     TaggingComponent,
     SnapshotComponent,
-    InventoryComponent
+    InventoryComponent,
+    MsDashboardComponent
   ],
   imports: [
     CommonModule,

@@ -204,7 +204,7 @@ changeCloudAccount(cloudBo){
   
   this.accountName = cloudBo.accountName;
   sessionStorage.setItem('cloudAccountName', this.accountName);
-  if (this.router.url === '/account/insights/dashboard'){
+  if (this.router.url === '/application/main-component'){
     location.reload();
   }else{
     //this.router.navigate(['/account/insights/dashboard']);
