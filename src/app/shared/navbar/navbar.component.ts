@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from "@angular/router";
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {environment } from './../../../environments/environment'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -29,13 +29,15 @@ export class NavbarComponent implements OnInit {
   userResponseCode :any;
   inputPassword :any;
   projectsList:any;
+  returnUrl: string;
 
-  constructor(config: NgbDropdownConfig, private router: Router, private http: HttpClient,private modalService: NgbModal) {
+  constructor(config: NgbDropdownConfig, private router: Router, private http: HttpClient,private modalService: NgbModal,private route: ActivatedRoute) {
     config.placement = 'bottom-right';
   }
 
   ngOnInit() {
     
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
     this.fetchCustomerProjects();
     this.fetchAllAccounts();
   }
@@ -202,18 +204,18 @@ changeCloudAccount(cloudBo){
   
   this.accountName = cloudBo.accountName;
   sessionStorage.setItem('cloudAccountName', this.accountName);
-  if (this.router.url === '/application/main-component'){
+  if (this.router.url === '/account/insights/dashboard'){
     location.reload();
   }else{
     //this.router.navigate(['/account/insights/dashboard']);
-    /*if(this.returnUrl != undefined && this.returnUrl !=""){
+    if(this.returnUrl != undefined && this.returnUrl !=""){
       this.router.navigate([this.returnUrl])
     }
      
     else
     //this.router.navigate(['/account/insights/dashboard']);   
     this.router.navigate([this.returnUrl])                     
-      console.log('Logged in successful'); */
+      console.log('Logged in successful');
 }
   }
 

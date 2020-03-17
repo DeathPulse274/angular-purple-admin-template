@@ -30,6 +30,7 @@ import { AutomationComponent } from './main-page/automation/automation.component
 import { SnapshotComponent } from './main-page/automation/snapshot/snapshot.component';
 import { TaggingComponent } from './main-page/automation/tagging/tagging.component';
 import { StartStopComponent } from './main-page/automation/start-stop/start-stop.component';
+import { InventoryComponent } from './main-page/inventory/inventory.component'
 
 
 
@@ -83,7 +84,8 @@ const routes: Routes = [
                 {path:'tagging',component:TaggingComponent},
                 {path:'snapshot',component:SnapshotComponent}
               ]
-            }
+            },
+            {path:'inventory', component:InventoryComponent}
           ]
   },
  // { path : 'main-page', loadChildren: () => import('./main-page/main-page.module').then(m => m.MainModule)}

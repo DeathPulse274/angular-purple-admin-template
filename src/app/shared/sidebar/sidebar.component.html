@@ -19,7 +19,7 @@
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{'active' : dashboard.isActive || buttons.isActive  }">
+    <li class="nav-item" [ngClass]="{'active' : dashboard.isActive || inventory.isActive  }">
       <a class="nav-link" (click)="uiBasicCollapsed = !uiBasicCollapsed" [attr.aria-expanded]="uiBasicCollapsed" aria-controls="ui-basic">
         <span class="menu-title">Insights</span>
         <i class="menu-arrow"></i>
@@ -28,7 +28,7 @@
       <div class="collapse" id="ui-basic" [ngbCollapse]="!uiBasicCollapsed">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" routerLink="/application/main-component" routerLinkActive="active" #dashboard="routerLinkActive">Dashboard</a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="basic-ui/buttons" routerLinkActive="active" #buttons="routerLinkActive">Inventory</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/application/inventory" routerLinkActive="active" #inventory="routerLinkActive">Inventory</a></li>
           
         </ul>
       </div>

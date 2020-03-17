@@ -35,6 +35,8 @@ import { StartStopComponent } from './automation/start-stop/start-stop.component
 import { TaggingComponent } from './automation/tagging/tagging.component';
 import { SnapshotComponent } from './automation/snapshot/snapshot.component';
 import { FormsModule } from '@angular/forms';
+import { InventoryComponent } from './inventory/inventory.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 const routes: Routes = [
@@ -74,13 +76,15 @@ const routes: Routes = [
     AutomationComponent,
     StartStopComponent,
     TaggingComponent,
-    SnapshotComponent
+    SnapshotComponent,
+    InventoryComponent
   ],
   imports: [
     CommonModule,
     NgbModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ]
 })
 
