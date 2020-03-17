@@ -38,6 +38,7 @@ import { FormsModule } from '@angular/forms';
 import { InventoryComponent } from './inventory/inventory.component';
 import { DataTablesModule } from 'angular-datatables';
 import { MsDashboardComponent } from './ms-dashboard/ms-dashboard.component';
+import { Daterangepicker } from './daterangepicker/daterangepicker.module';
 
 
 const routes: Routes = [
@@ -86,7 +87,8 @@ const routes: Routes = [
     NgbModule,
     RouterModule.forChild(routes),
     FormsModule,
-    DataTablesModule
+    DataTablesModule,
+    Daterangepicker
   ]
 })
 
