@@ -29,7 +29,7 @@
     "compass-mixins": "^0.12.10",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ng-multiselect-dropdown": "^0.2.10",
     "ng2-charts": "^2.3.0",
